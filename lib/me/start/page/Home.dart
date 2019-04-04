@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start/me/start/bottom/MyBottom.dart';
 import 'package:flutter_start/me/start/drawer/MyDrawer.dart';
+import 'package:flutter_start/me/start/widgets/BasicDemo.dart';
+import 'package:flutter_start/me/start/widgets/ListViewImages.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final skey = GlobalKey<ScaffoldState>();
+    final scaffoldKey = GlobalKey<ScaffoldState>();
 
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        key: skey,
+        key: scaffoldKey,
         appBar: AppBar(
           leading: IconButton(
             icon: Icon(Icons.menu),
-            onPressed: () =>
-                {debugPrint("menu is pressed"), skey.currentState.openDrawer()},
+            onPressed: () => {
+                  debugPrint("menu is pressed"),
+                  scaffoldKey.currentState.openDrawer()
+                },
             tooltip: "menu",
           ),
           title: Row(
@@ -61,12 +65,8 @@ class Home extends StatelessWidget {
         ),
         backgroundColor: Colors.grey[100],
         body: TabBarView(children: <Widget>[
-          Tab(
-            icon: Icon(Icons.local_florist, size: 128, color: Colors.black12),
-          ),
-          Tab(
-            icon: Icon(Icons.change_history, size: 128, color: Colors.black12),
-          ),
+          ListViewImages(),
+          BasicDemo(),
           Tab(
             icon: Icon(Icons.directions_bike, size: 128, color: Colors.black12),
           )

@@ -9,7 +9,6 @@ class _MyBottomState extends State<MyBottom> {
   var _index = 0;
 
   void _clickHandler(int value) {
-    _index = value;
     setState(() {
       _index = value;
     });
@@ -22,7 +21,7 @@ class _MyBottomState extends State<MyBottom> {
         onTap: _clickHandler,
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.purple,
-        items: [
+        items: const [
           BottomNavigationBarItem(
               icon: Icon(Icons.explore), title: Text("explore")),
           BottomNavigationBarItem(
