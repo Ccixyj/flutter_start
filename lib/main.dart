@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
           splashColor: Color.fromRGBO(255, 255, 255, 0.3)),
       home: Home(),
+//      home: SliverDemo(),
     );
   }
 }
