@@ -4,6 +4,7 @@ import 'package:flutter_start/me/start/drawer/MyDrawer.dart';
 import 'package:flutter_start/me/start/widgets/BasicDemo.dart';
 import 'package:flutter_start/me/start/widgets/LayoutDemo.dart';
 import 'package:flutter_start/me/start/widgets/ListViewImages.dart';
+import 'package:flutter_start/me/start/widgets/SliverDemo.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -11,7 +12,7 @@ class Home extends StatelessWidget {
     final scaffoldKey = GlobalKey<ScaffoldState>();
 
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
@@ -47,10 +48,10 @@ class Home extends StatelessWidget {
           ],
           bottom: TabBar(
               unselectedLabelColor: Colors.black38,
-              indicatorColor: Colors.black54,
+              indicatorColor: Colors.lightBlue,
               isScrollable: false,
               indicatorSize: TabBarIndicatorSize.tab,
-              indicatorWeight: 1,
+              indicatorWeight: 3,
               tabs: <Widget>[
                 Tab(
                   icon: Icon(Icons.local_florist),
@@ -60,7 +61,10 @@ class Home extends StatelessWidget {
                 ),
                 Tab(
                   icon: Icon(Icons.directions_bike),
-                )
+                ),
+                Tab(
+                  icon: Icon(Icons.desktop_mac),
+                ),
               ]),
           elevation: 0,
         ),
@@ -68,8 +72,7 @@ class Home extends StatelessWidget {
         body: TabBarView(children: <Widget>[
           ListViewImages(),
           BasicDemo(),
-          LayoutDemo(),
-        ]),
+          LayoutDemo(),          SliverDemo(),        ]),
         drawer: MyDrawer(),
         endDrawer: Container(
             width: MediaQuery.of(context).size.width / 2,
