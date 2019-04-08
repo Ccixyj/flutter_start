@@ -7,7 +7,7 @@ class MyBottom extends StatefulWidget {
 
 class _MyBottomState extends State<MyBottom> {
   var _index = 0;
-
+  Collec
   void _clickHandler(int value) {
     setState(() {
       _index = value;
