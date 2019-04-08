@@ -146,29 +146,44 @@ Widget _buildItemWithPost(Post e) {
             ),
           ),
           Positioned(
-            left: 16,
-            bottom: 24,
-            child: Text(
-              e.title,
-              maxLines: 1,
-              style: TextStyle(
-                fontSize: 15,
-                color: Colors.white.withOpacity(0.8),
-                fontWeight: FontWeight.w400,
-                letterSpacing: 2.5,
-              ),
-            ),
-          ),
+              left: 16,
+              bottom: 32,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  color: Colors.black12.withOpacity(0.2),
+                  padding: const EdgeInsets.only(
+                      left: 8.0, right: 8.0, top: 4, bottom: 4),
+                  child: Text(
+                    e.title,
+                    maxLines: 1,
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white.withOpacity(0.8),
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 2.5,
+                    ),
+                  ),
+                ),
+              )),
           Positioned(
               bottom: 4,
               left: 16,
-              child: Text(
-                e.author,
-                maxLines: 1,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w200),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Container(
+                  color: Colors.black12.withOpacity(0.2),
+                  padding: const EdgeInsets.only(
+                      left: 8.0, right: 8.0, top: 4, bottom: 4),
+                  child: Text(
+                    e.author,
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w200),
+                  ),
+                ),
               )),
         ],
       ),
