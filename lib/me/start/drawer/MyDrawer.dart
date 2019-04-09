@@ -49,6 +49,17 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushNamed(context, "/form");
             },
           ),
+            ListTile(
+            leading: Icon(
+              Icons.store_mall_directory,
+              color: Colors.black26,
+            ),
+            title: Text("material components"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/mdc");
+            },
+          ),
           ListTile(
             leading: Icon(
               Icons.settings,
