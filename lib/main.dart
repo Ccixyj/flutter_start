@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_start/me/start/page/FormDemo.dart';
 import 'package:flutter_start/me/start/page/Home.dart';
-import 'package:flutter_start/me/start/widgets/NavigatorDemo.dart';
+import 'package:flutter_start/me/start/page/NavigatorDemo.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         "/": (c) => Home(),
         "/about": (c) => PageFor("about"),
         "/navigate": (c) => NavigatorDemo(),
+        "/form": (c) => FormDemo(),
       },
       initialRoute: "/",
 //      home: SliverDemo(),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_start/me/start/widgets/NavigatorDemo.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -36,9 +35,18 @@ class MyDrawer extends StatelessWidget {
             title: Text("navigator"),
             onTap: () {
               Navigator.pop(context);
-              Navigator.of(context).push(
-                MaterialPageRoute(builder: (BuildContext c) => NavigatorDemo()),
-              );
+              Navigator.pushNamed(context, "/navigate");
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.format_align_center,
+              color: Colors.black26,
+            ),
+            title: Text("form"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/form");
             },
           ),
           ListTile(
