@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     Key key,
@@ -30,11 +29,36 @@ class MyDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.message,
+              Icons.navigation,
               color: Colors.black26,
             ),
-            title: Text("message"),
-            onTap: () => Navigator.pop(context),
+            title: Text("navigator"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/navigate");
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.format_align_center,
+              color: Colors.black26,
+            ),
+            title: Text("form"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/form");
+            },
+          ),
+            ListTile(
+            leading: Icon(
+              Icons.store_mall_directory,
+              color: Colors.black26,
+            ),
+            title: Text("material components"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/mdc");
+            },
           ),
           ListTile(
             leading: Icon(

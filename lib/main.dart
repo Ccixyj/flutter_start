@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_start/me/start/page/FormDemo.dart';
 import 'package:flutter_start/me/start/page/Home.dart';
+import 'package:flutter_start/me/start/page/MDC_Demo.dart';
+import 'package:flutter_start/me/start/page/NavigatorDemo.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,8 +26,17 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           highlightColor: Color.fromRGBO(255, 255, 255, 0.5),
           splashColor: Color.fromRGBO(255, 255, 255, 0.3)),
-      home: Home(),
-//      home: SliverDemo(),
-    );
-  }
-}
+      routes: {
+        "/": (c) => Home(),
+        "/about": (c) => PageFor("about"),
+        "/navigate": (c) => NavigatorDemo(),
+        "/form": (c) => FormDemo(),
+        "/mdc": (c) => MDCDemo(),
+              },
+              initialRoute: "/",
+        //      home: SliverDemo(),
+            );
+          }
+        }
+        
+
