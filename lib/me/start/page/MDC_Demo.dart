@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_start/me/start/page/ButtonDemo.dart';
 import 'package:flutter_start/me/start/page/FloatingActionButtonDemo.dart';
+import 'package:flutter_start/me/start/page/PopupMenuDemo.dart';
 
 class MDCDemo extends StatelessWidget {
   @override
@@ -13,6 +15,14 @@ class MDCDemo extends StatelessWidget {
             ListItem(
               title: "FloationActionDemo",
               page: FloatingActionButtonDemo(),
+            ),
+            ListItem(
+              title: "ButtomDemo",
+              page: ButtonDemo(),
+            ),
+            ListItem(
+              title: "PopupMenuDemo",
+              page: PopupMenuDemo(),
             ),
           ],
         ));
