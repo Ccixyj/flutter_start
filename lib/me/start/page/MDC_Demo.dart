@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start/me/start/page/ButtonDemo.dart';
+import 'package:flutter_start/me/start/page/CheckboxDemo.dart';
 import 'package:flutter_start/me/start/page/FloatingActionButtonDemo.dart';
 import 'package:flutter_start/me/start/page/PopupMenuDemo.dart';
 
@@ -23,6 +24,10 @@ class MDCDemo extends StatelessWidget {
             ListItem(
               title: "PopupMenuDemo",
               page: PopupMenuDemo(),
+            ),
+            ListItem(
+              title: "CheckboxDemo",
+              page: CheckboxDemo(),
             ),
           ],
         ));
