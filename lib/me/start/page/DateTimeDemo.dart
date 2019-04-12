@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -10,6 +12,15 @@ class _DatetimeState extends State<DateTimeDemo> {
   var _selectDate = DateTime.now();
   final dateFormat = DateFormat("yyyy-MM-dd");
   final dateTimeFormat = DateFormat("yyyy-MM-dd HH:mm:ss");
+  final sink = StreamController<DateTime>();
+
+  @override
+  void initState() {
+    super.initState();
+    sink.stream.listen((d) {
+      debugPrint("listen :$d");
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +65,7 @@ class _DatetimeState extends State<DateTimeDemo> {
       firstDate: _selectDate.subtract(Duration(days: 360 * 10)),
       lastDate: _selectDate.add(Duration(days: 360 * 10)),
     );
+    sink.sink.add(f);
     setState(() {
       _selectDate = f;
       debugPrint("date :$_selectDate");
