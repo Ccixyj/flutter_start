@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_start/me/start/page/ButtonDemo.dart';
 import 'package:flutter_start/me/start/page/CheckboxDemo.dart';
+import 'package:flutter_start/me/start/page/DateTimeDemo.dart';
 import 'package:flutter_start/me/start/page/FloatingActionButtonDemo.dart';
 import 'package:flutter_start/me/start/page/PopupMenuDemo.dart';
 
@@ -29,6 +30,10 @@ class MDCDemo extends StatelessWidget {
               title: "CheckboxDemo",
               page: CheckboxDemo(),
             ),
+            ListItem(
+              title: "DatetimeDemo",
+              page: DateTimeDemo(),
+            ),
           ],
         ));
   }
@@ -46,12 +51,9 @@ class ListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(title), 
-      onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=> page)) ,
+      title: Text(title),
+      onTap: () => Navigator.push(
+          context, MaterialPageRoute(builder: (context) => page)),
     );
   }
 }
-
-
-
-

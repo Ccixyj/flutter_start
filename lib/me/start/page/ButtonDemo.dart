@@ -184,10 +184,11 @@ class _FixWidthState extends State<FixWidthDemo> {
             debugPrint("cons $b");
 
             return Slider(
-              label: "change width",
+              label: "value :${this.value.toInt()}",
               value: this.value,
               min: 10,
               max: b.biggest.width,
+              divisions: 100,
               onChanged: _valueChanged,
             );
           },
@@ -274,7 +275,7 @@ class ButtonBarDemo extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 4, vertical: 10)),
       ),
       child: ButtonBar(
-        alignment:  MainAxisAlignment.start,
+        alignment: MainAxisAlignment.start,
         children: <Widget>[
           OutlineButton(
             borderSide: BorderSide(
