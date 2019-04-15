@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_start/me/start/bottom/MyBottom.dart';
-import 'package:flutter_start/me/start/drawer/MyDrawer.dart';
-import 'package:flutter_start/me/start/widgets/BasicDemo.dart';
-import 'package:flutter_start/me/start/widgets/LayoutDemo.dart';
-import 'package:flutter_start/me/start/widgets/ListViewImages.dart';
-import 'package:flutter_start/me/start/widgets/SliverDemo.dart';
+import 'package:flutter_start/me/start/bottom/demo_bottom.dart';
+import 'package:flutter_start/me/start/drawer/demo_drawer.dart';
+import 'package:flutter_start/me/start/widgets/basic_demo.dart';
+import 'package:flutter_start/me/start/widgets/layout_demo.dart';
+import 'package:flutter_start/me/start/widgets/listview_images.dart';
+import 'package:flutter_start/me/start/widgets/sliver_demo.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -72,7 +72,9 @@ class Home extends StatelessWidget {
         body: TabBarView(children: <Widget>[
           ListViewImages(),
           BasicDemo(),
-          LayoutDemo(),          SliverDemo(),        ]),
+          LayoutDemo(),
+          SliverDemo(),
+        ]),
         drawer: MyDrawer(),
         endDrawer: Container(
             width: MediaQuery.of(context).size.width / 2,
@@ -82,7 +84,7 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[Text("wold")],
             )),
-        bottomNavigationBar: new MyBottom(),
+        bottomNavigationBar: MyBottom(),
       ),
     );
   }

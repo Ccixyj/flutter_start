@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_start/me/start/page/ButtonDemo.dart';
-import 'package:flutter_start/me/start/page/CheckboxDemo.dart';
-import 'package:flutter_start/me/start/page/DateTimeDemo.dart';
-import 'package:flutter_start/me/start/page/FloatingActionButtonDemo.dart';
-import 'package:flutter_start/me/start/page/PopupMenuDemo.dart';
+import 'package:flutter_start/me/start/page/popup_menu_demo.dart';
+
+import 'package:flutter_start/me/start/page/show_dialog_demo.dart';
+
+import 'button_demo.dart';
+import 'checkbox_demo.dart';
+import 'date_time_demo.dart';
+import 'floating_action_button_demo.dart';
 
 class MDCDemo extends StatelessWidget {
   @override
@@ -33,6 +36,10 @@ class MDCDemo extends StatelessWidget {
             ListItem(
               title: "DatetimeDemo",
               page: DateTimeDemo(),
+            ),
+            ListItem(
+              title: "showDialogDemo",
+              page: ShowDialogDemo(),
             ),
           ],
         ));

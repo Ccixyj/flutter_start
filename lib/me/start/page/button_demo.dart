@@ -171,11 +171,6 @@ class _FixWidthState extends State<FixWidthDemo> {
   }
 
   @override
-  void initState() {
-    debugPrint("initState $context");
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[

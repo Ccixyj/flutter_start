@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_start/me/start/page/FormDemo.dart';
-import 'package:flutter_start/me/start/page/Home.dart';
-import 'package:flutter_start/me/start/page/MDC_Demo.dart';
-import 'package:flutter_start/me/start/page/NavigatorDemo.dart';
+
+import 'me/start/page/form_demo.dart';
+import 'me/start/page/home_page.dart';
+import 'me/start/page/mdc_list_demo.dart';
+import 'me/start/page/navigator_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,11 +33,9 @@ class MyApp extends StatelessWidget {
         "/navigate": (c) => NavigatorDemo(),
         "/form": (c) => FormDemo(),
         "/mdc": (c) => MDCDemo(),
-              },
-              initialRoute: "/",
-        //      home: SliverDemo(),
-            );
-          }
-        }
-        
-
+      },
+      initialRoute: "/",
+      //      home: SliverDemo(),
+    );
+  }
+}

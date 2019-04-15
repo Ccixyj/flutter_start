@@ -23,6 +23,12 @@ class _DatetimeState extends State<DateTimeDemo> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    sink.close();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(

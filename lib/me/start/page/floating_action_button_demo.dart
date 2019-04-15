@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -22,14 +24,15 @@ class FloatingActionButtonDemo extends StatelessWidget {
       icon: Icon(Icons.add),
       onPressed: _pressed,
       label: Text("添加"),
-
     );
     return Scaffold(
       appBar: AppBar(
         title: Text("FloatingActionButtonDemo"),
       ),
       body: Text("btn"),
-      floatingActionButton: floatingActionButton1,
+      floatingActionButton: Random.secure().nextInt(10) > 5
+          ? floatingActionButton1
+          : floatingActionButton2,
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       bottomNavigationBar: BottomAppBar(
         child: Container(
@@ -37,7 +40,7 @@ class FloatingActionButtonDemo extends StatelessWidget {
           color: Colors.purple,
           child: Center(child: Text("bottom app bar")),
         ),
-      shape: CircularNotchedRectangle(),
+        shape: CircularNotchedRectangle(),
       ),
     );
   }
