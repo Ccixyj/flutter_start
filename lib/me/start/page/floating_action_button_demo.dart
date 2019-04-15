@@ -25,23 +25,50 @@ class FloatingActionButtonDemo extends StatelessWidget {
       onPressed: _pressed,
       label: Text("添加"),
     );
+
+    final nextInt = Random.secure().nextInt(10);
     return Scaffold(
       appBar: AppBar(
         title: Text("FloatingActionButtonDemo"),
       ),
       body: Text("btn"),
-      floatingActionButton: Random.secure().nextInt(10) > 5
-          ? floatingActionButton1
-          : floatingActionButton2,
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar: BottomAppBar(
-        child: Container(
-          height: 80,
-          color: Colors.purple,
-          child: Center(child: Text("bottom app bar")),
-        ),
-        shape: CircularNotchedRectangle(),
-      ),
+      floatingActionButton:
+          nextInt > 5 ? floatingActionButton1 : floatingActionButton2,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: nextInt > 5
+          ? BottomAppBar(
+              child: BottomNavigationBar(
+                backgroundColor: Colors.deepOrangeAccent,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.add),
+                    title: Text("add"),
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Icon(Icons.delete),
+                    title: Text("delete"),
+                  )
+                ],
+              ),
+              shape: CircularNotchedRectangle(),
+            ) // BottomAppBar(
+//              child: Container(
+//                height: 80,
+//                color: Colors.purple,
+//                child: Center(child: Text("bottom app bar")),
+//              ),
+//              shape: CircularNotchedRectangle(),
+//            )
+          : null,
+      bottomSheet: nextInt > 5
+          ? null
+          : BottomSheet(
+              onClosing: () {},
+              builder: (c) => Container(
+                    height: 80,
+                    color: Colors.indigo,
+                    child: Center(child: Text("bottom sheet")),
+                  )),
     );
   }
 

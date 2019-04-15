@@ -71,11 +71,13 @@ class _DatetimeState extends State<DateTimeDemo> {
       firstDate: _selectDate.subtract(Duration(days: 360 * 10)),
       lastDate: _selectDate.add(Duration(days: 360 * 10)),
     );
-    sink.sink.add(f);
-    setState(() {
-      _selectDate = f;
-      debugPrint("date :$_selectDate");
-    });
+    if (f != null) {
+      sink.sink.add(f);
+      setState(() {
+        _selectDate = f;
+        debugPrint("date :$_selectDate");
+      });
+    }
   }
 
   void _selectDateTimeHandler() async {
