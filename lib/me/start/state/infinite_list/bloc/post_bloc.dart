@@ -15,6 +15,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
     print("mapEventToState $event : ${_isFinish(currentState)}");
+    if (event is FetchSuccess) return;
     if (event is Fetch && !_isFinish(currentState)) {
       //拉取
 
