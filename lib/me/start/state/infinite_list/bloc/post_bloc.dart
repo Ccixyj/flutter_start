@@ -12,6 +12,11 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   @override
   PostState get initialState => PostUninitialized();
 
+  final PostRepository _repository;
+
+  PostBloc({PostRepository repository})
+      : _repository = repository ?? PostRepository();
+
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
     print("mapEventToState $event : ${_isFinish(currentState)}");
@@ -21,8 +26,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
       try {
         if (currentState is PostUninitialized) {
-//          yield PostLoading();
-          final posts = await _fetchPost(0);
+          //yield PostLoading();
+          final posts = await _repository.fetchPost(0);
           yield PostList(posts, false);
           dispatch(FetchSuccess());
           return;
@@ -30,8 +35,8 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
         if (currentState is PostList) {
           final old = currentState as PostList;
-//          yield PostLoading();
-          final posts = await _fetchPost(old.list.length);
+          // yield PostLoading();
+          final posts = await _repository.fetchPost(old.list.length);
 
           yield posts.isEmpty
               ? old.copyWith(isFinished: true)
@@ -50,7 +55,16 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
   bool _isFinish(PostState state) => state is PostList && state.isFinished;
 
-  Future<List<PostItem>> _fetchPost(int startIndex, {int limit = 5}) async {
+  @override
+  Stream<PostEvent> transform(Stream<PostEvent> events) =>
+      (events as Observable<PostEvent>).distinct();
+
+//  @override
+//  Stream<PostState> get state => super.state.where((s) => !(s is PostLoading));
+}
+
+class PostRepository {
+  Future<List<PostItem>> fetchPost(int startIndex, {int limit = 10}) async {
     final response = await client.get(
         'https://jsonplaceholder.typicode.com/posts?_start=$startIndex&_limit=$limit');
     if (response.statusCode == 200) {
@@ -64,11 +78,4 @@ class PostBloc extends Bloc<PostEvent, PostState> {
       throw Exception('error fetching posts');
     }
   }
-
-  @override
-  Stream<PostEvent> transform(Stream<PostEvent> events) =>
-      (events as Observable<PostEvent>).distinct();
-
-//  @override
-//  Stream<PostState> get state => super.state.where((s) => !(s is PostLoading));
 }
