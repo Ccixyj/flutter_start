@@ -4,6 +4,7 @@ import 'me/start/page/form_demo.dart';
 import 'me/start/page/home_page.dart';
 import 'me/start/page/mdc_list_demo.dart';
 import 'me/start/page/navigator_demo.dart';
+import 'me/start/state/state_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         "/navigate": (c) => NavigatorDemo(),
         "/form": (c) => FormDemo(),
         "/mdc": (c) => MDCDemo(),
+        "/state": (c) => StateDemo(),
       },
       initialRoute: "/",
       //      home: SliverDemo(),

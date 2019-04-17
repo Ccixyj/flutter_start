@@ -49,7 +49,7 @@ class MyDrawer extends StatelessWidget {
               Navigator.pushNamed(context, "/form");
             },
           ),
-            ListTile(
+          ListTile(
             leading: Icon(
               Icons.store_mall_directory,
               color: Colors.black26,
@@ -65,8 +65,11 @@ class MyDrawer extends StatelessWidget {
               Icons.settings,
               color: Colors.black26,
             ),
-            title: Text("settings"),
-            onTap: () => Navigator.pop(context),
+            title: Text("state"),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.pushNamed(context, "/state");
+            },
           )
         ],
       ),

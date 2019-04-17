@@ -5,6 +5,7 @@ import 'package:flutter_start/me/start/page/show_dialog_demo.dart';
 
 import 'button_demo.dart';
 import 'checkbox_demo.dart';
+import 'componets.dart';
 import 'date_time_demo.dart';
 import 'floating_action_button_demo.dart';
 
@@ -41,6 +42,10 @@ class MDCDemo extends StatelessWidget {
               title: "showDialogDemo",
               page: ShowDialogDemo(),
             ),
+            ListItem(
+              title: "mdcDemo",
+              page: ComponentsDemo(),
+            )
           ],
         ));
   }
