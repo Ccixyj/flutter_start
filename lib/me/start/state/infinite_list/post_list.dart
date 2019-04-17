@@ -23,14 +23,12 @@ class PotListView extends StatefulWidget {
 class _PotListViewState extends State<PotListView> {
   final _postBloc = PostBloc();
   final _controller = ScrollController();
-  var loading = false;
 
   @override
   void initState() {
     super.initState();
     _controller.addListener(_onScroll);
     //init list
-    loading = true;
     _postBloc.dispatch(Fetch());
   }
 
@@ -64,7 +62,6 @@ class _PotListViewState extends State<PotListView> {
           child: Text('failed to fetch posts'),
         );
       }
-      loading = false;
       return ListView.builder(
         itemBuilder: (context, index) => index >= state.list.length
             ? BottomLoader()
@@ -82,8 +79,7 @@ class _PotListViewState extends State<PotListView> {
     final currentScroll = _controller.position.pixels;
 //    debugPrint(
 //        "max $maxScroll , curren $currentScroll , gap ${maxScroll - currentScroll}");
-    if (maxScroll - currentScroll <= 30 && loading == false) {
-      loading = true;
+    if (maxScroll - currentScroll <= 30) {
       debugPrint(
           "max $maxScroll , curren $currentScroll , gap ${maxScroll - currentScroll}");
       _postBloc.dispatch(Fetch());

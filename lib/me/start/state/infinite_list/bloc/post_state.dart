@@ -15,6 +15,11 @@ class PostError extends PostState {
   String toString() => 'PostError';
 }
 
+class PostLoading extends PostState {
+  @override
+  String toString() => 'PostLoading';
+}
+
 class PostList extends PostState {
   final List<PostItem> list;
   final bool isFinished;

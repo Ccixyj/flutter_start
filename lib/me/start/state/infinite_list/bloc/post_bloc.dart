@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_start/me/start/state/infinite_list/models/models.dart';
 import 'package:http/http.dart' as client;
+import 'package:rxdart/rxdart.dart';
 
 import 'post_event.dart';
 import 'post_state.dart';
@@ -13,29 +14,34 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
   @override
   Stream<PostState> mapEventToState(PostEvent event) async* {
-    print("mapEventToState $event");
+    print("mapEventToState $event : ${_isFinish(currentState)}");
     if (event is Fetch && !_isFinish(currentState)) {
       //拉取
 
       try {
         if (currentState is PostUninitialized) {
+//          yield PostLoading();
           final posts = await _fetchPost(0);
           yield PostList(posts, false);
+          dispatch(FetchSuccess());
           return;
         }
 
         if (currentState is PostList) {
-          final posts =
-              await _fetchPost((currentState as PostList).list.length);
+          final old = currentState as PostList;
+//          yield PostLoading();
+          final posts = await _fetchPost(old.list.length);
 
           yield posts.isEmpty
-              ? (currentState as PostList).copyWith(isFinished: true)
+              ? old.copyWith(isFinished: true)
               : PostList(
-                  (currentState as PostList).list + posts,
+                  old.list + posts,
                   false,
                 );
+          dispatch(FetchSuccess());
         }
       } catch (e) {
+        print("mapEventToState error $e");
         yield PostError();
       }
     }
@@ -59,8 +65,9 @@ class PostBloc extends Bloc<PostEvent, PostState> {
   }
 
   @override
-  Stream<PostEvent> transform(Stream<PostEvent> events) {
-    print("transform $events");
-    return events;
-  }
+  Stream<PostEvent> transform(Stream<PostEvent> events) =>
+      (events as Observable<PostEvent>).distinct();
+
+//  @override
+//  Stream<PostState> get state => super.state.where((s) => !(s is PostLoading));
 }
